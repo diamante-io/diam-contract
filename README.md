@@ -1,13 +1,41 @@
-# Sample Hardhat Project
+Smart contracts custom methods
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+ 
+mint 
 
-Try running some of the following tasks:
+Parameters: 
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+uint256 amount: The number of tokens to mint. 
+
+bytes32 _hash: Hash of the message to be signed. 
+
+uint8 _v: Recovery byte of the signature. 
+
+bytes32 _r: First 32 bytes of the signature. 
+
+bytes32 _s: Second 32 bytes of the signature. 
+
+uint256 deadline: Deadline after which the signature is not valid. 
+
+Access Control: Can only be called by the contract owner. 
+
+
+Functionality: 
+
+Validates the mint amount, hash, and signature. 
+
+Increments ownerNounce. 
+
+Mints the specified amount of tokens to the sender's address. 
+
+
+
+
+burn 
+
+Parameters: 
+
+uint256 amount: The number of tokens to burn. 
+
+Access Control: Can be called by any token holder. 
+ 
