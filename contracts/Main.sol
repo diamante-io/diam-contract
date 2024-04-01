@@ -55,7 +55,7 @@ contract Diam is Ownable, ERC20Permit {
             )
         );
 
-        address signer = ecrecover(messageDigest, _v, _r, _s);
+        address signer = ECDSA.recover(messageDigest, _v, _r, _s);
 
         require(signer == owner(), "DW02");
 
